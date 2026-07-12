@@ -1,0 +1,79 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ЧИСТОВИК — клининговая компания, уборка по чек-листу</title>
+<meta name="description" content="Клининговая компания в Москве. Уборка по чек-листу, фотоотчёт, своя бригада." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="stylesheet" href="styles.css" />
+
+<body data-page="home">
+  <header class="bar">
+    <a href="index.html" class="bar__brand"><span data-brand></span><span>КЛИНИНГОВАЯ КОМПАНИЯ</span></a>
+    <nav class="bar__nav" data-nav></nav>
+    <div class="bar__right">
+      <a class="bar__phone" data-phone href="tel:"></a>
+      <a href="contacts.html" class="btn">ЗАЯВКА</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__meta">
+      <span data-hero-label></span>
+      <span>№01 · С 2016</span>
+    </div>
+    <div class="hero__grid">
+      <div>
+        <h1 class="hero__title"><span data-hero-title></span> <em data-hero-accent></em><br /><span data-hero-tail></span></h1>
+        <p class="lede" data-hero-lead style="margin-top: 1.2rem"></p>
+        <div class="hero__foot">
+          <a href="contacts.html" class="btn" data-hero-cta></a>
+          <span class="hero__note" data-hero-cta-sub></span>
+        </div>
+      </div>
+      <div>
+        <div class="ba" data-hero-ba data-ba></div>
+        <p class="ba__cap" data-hero-ba-cap></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <div><p class="tag">[ КАК ЭТО РАБОТАЕТ ]</p><h2 class="head">Четыре шага<br /><em>до чистоты</em></h2></div>
+    </div>
+    <div class="process__list" data-process></div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section__head">
+      <div><p class="tag">[ УСЛУГИ ]</p><h2 class="head">Основные <em>направления</em></h2></div>
+      <a href="services.html" class="btn btn--ghost">ВСЕ УСЛУГИ И ЦЕНЫ</a>
+    </div>
+    <div class="services__grid" data-services-preview></div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <div><p class="tag">[ ОТЗЫВЫ ]</p><h2 class="head">Что говорят <em>клиенты</em></h2></div>
+    </div>
+    <div class="reviews__grid" data-reviews></div>
+  </section>
+
+  <section class="section">
+    <div class="cta-band">
+      <h2 class="head">Готовы назначить <em>уборку?</em></h2>
+      <a href="contacts.html" class="btn">Оставить заявку</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__row">
+      <div class="footer__brand" data-brand></div>
+      <ul class="footer__contacts" data-footer-contacts></ul>
+    </div>
+    <p class="footer__muted">ДЕМО-САЙТ · СОБРАН ДЛЯ ПОРТФОЛИО</p>
+  </footer>
+  <script type="module" src="main.js"></script>
+</body>

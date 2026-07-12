@@ -1,0 +1,76 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Контакты — ЧИСТОВИК</title>
+<meta name="description" content="Оставьте заявку на уборку. Ответим за 10 минут." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+
+<body data-page="contacts">
+  <header class="bar">
+    <a href="index.html" class="bar__brand"><span data-brand></span><span>КЛИНИНГОВАЯ КОМПАНИЯ</span></a>
+    <nav class="bar__nav" data-nav></nav>
+    <div class="bar__right">
+      <a class="bar__phone" data-phone href="tel:"></a>
+      <a href="contacts.html" class="btn">ЗАЯВКА</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__meta"><span>КОНТАКТЫ</span><span>№05</span></div>
+    <h1 class="head" style="font-size: clamp(2rem, 4.6vw, 3.4rem)">Оставьте заявку —<br /><em>ответим за 10 минут</em></h1>
+  </section>
+
+  <section class="contact">
+    <div class="contact__side">
+      <p class="tag">[ КАК СВЯЗАТЬСЯ ]</p>
+      <dl class="contact__list" data-contact-list></dl>
+      <div class="contact__map" data-map></div>
+    </div>
+
+    <form class="form" data-form novalidate>
+      <label class="field">
+        <span>ИМЯ</span>
+        <input name="name" type="text" required maxlength="80" placeholder="Как к вам обращаться" autocomplete="name" />
+      </label>
+      <label class="field">
+        <span>ТЕЛЕФОН</span>
+        <input name="phone" type="tel" required maxlength="20" placeholder="+7 900 000-00-00" autocomplete="tel" />
+      </label>
+      <div class="field-row">
+        <label class="field">
+          <span>УСЛУГА</span>
+          <select name="service">
+            <option>Генеральная уборка</option>
+            <option>Поддерживающая уборка</option>
+            <option>Уборка после ремонта</option>
+            <option>Мытьё окон</option>
+            <option>Химчистка мебели</option>
+            <option>Уборка офиса</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>ПЛОЩАДЬ, М²</span>
+          <input name="area" type="text" maxlength="10" placeholder="напр. 60" />
+        </label>
+      </div>
+      <label class="field">
+        <span>КОММЕНТАРИЙ</span>
+        <textarea name="comment" rows="3" maxlength="500" placeholder="Адрес, удобное время, пожелания"></textarea>
+      </label>
+      <button type="submit" class="btn btn--block form__submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+      <p class="form__status" data-status role="status" aria-live="polite"></p>
+      <p class="form__fine">Нажимая кнопку, вы соглашаетесь с обработкой данных. Демо-форма для портфолио.</p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__row">
+      <div class="footer__brand" data-brand></div>
+      <ul class="footer__contacts" data-footer-contacts></ul>
+    </div>
+    <p class="footer__muted">ДЕМО-САЙТ · СОБРАН ДЛЯ ПОРТФОЛИО</p>
+  </footer>
+  <script type="module" src="main.js"></script>
+</body>
