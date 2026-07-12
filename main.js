@@ -1,4 +1,4 @@
-import { CONFIG } from "./config.js";
+import { CONFIG } from "./config.js?v=2";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -57,8 +57,8 @@ function initBeforeAfter(root = document) {
 
 function baMarkup(before, after, capBefore = "ДО", capAfter = "ПОСЛЕ") {
   return `
-    <img class="ba__after" src="${esc(after)}" alt="После уборки" loading="lazy" />
-    <img class="ba__before" src="${esc(before)}" alt="До уборки" loading="lazy" />
+    <img class="ba__after" src="${esc(after)}" alt="После уборки" />
+    <img class="ba__before" src="${esc(before)}" alt="До уборки" />
     <span class="ba__tag ba__tag--before">${esc(capBefore)}</span>
     <span class="ba__tag ba__tag--after">${esc(capAfter)}</span>
     <div class="ba__handle"></div>`;

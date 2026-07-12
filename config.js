@@ -22,8 +22,8 @@ export const CONFIG = {
   },
 
   beforeAfter: {
-    before: "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=1200&q=80",
-    after: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
+    before: "./images/dirty_kitchen_hero_1783885577143.jpg",
+    after: "./images/clean_kitchen_hero_1783885456274.jpg",
     caption: "Кухня после генеральной уборки",
   },
 
@@ -145,23 +145,23 @@ export const CONFIG = {
   cases: [
     {
       title: "Кухня после ремонта",
-      before: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80",
-      after: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1000&q=80",
+      before: "./images/dirty_kitchen_case_1783885595041.jpg",
+      after: "./images/clean_kitchen_case_1783885464895.jpg",
     },
     {
       title: "Гостиная, генеральная уборка",
-      before: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1000&q=80",
-      after: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80",
+      before: "./images/dirty_livingroom_case_1783885528117.jpg",
+      after: "./images/clean_livingroom_case_1783885473113.jpg",
     },
     {
       title: "Ванная, поддерживающая уборка",
-      before: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1000&q=80",
-      after: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80",
+      before: "./images/dirty_bathroom_case_1783885538999.jpg",
+      after: "./images/clean_bathroom_case_1783885480525.jpg",
     },
     {
       title: "Диван, химчистка мебели",
-      before: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80",
-      after: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1000&q=80",
+      before: "./images/dirty_sofa_case_1783885547916.jpg",
+      after: "./images/clean_sofa_case_1783885489135.jpg",
     },
   ],
 
