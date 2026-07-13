@@ -9,29 +9,36 @@ const esc = (str = "") =>
 
 const page = document.body.dataset.page;
 
-/* ---- шапка ---- */
-$$("[data-brand]").forEach((el) => (el.textContent = CONFIG.brand));
-
-const navEl = $("[data-nav]");
-if (navEl) {
-  navEl.innerHTML = CONFIG.nav
-    .map((n) => `<a href="${n.href}"${n.key === page ? ' class="is-active"' : ""}>${esc(n.label)}</a>`)
-    .join("");
-}
-$$("[data-phone]").forEach((el) => {
-  el.href = `tel:${CONFIG.contacts.phone.replace(/\s/g, "")}`;
-  el.textContent = CONFIG.contacts.phone;
-});
-
-/* ---- подвал ---- */
+/* ---- общая оболочка: шапка и подвал рендерятся из конфига ---- */
 const c = CONFIG.contacts;
-const footerContacts = $("[data-footer-contacts]");
-if (footerContacts) {
-  footerContacts.innerHTML = `
-    <li><a href="tel:${c.phone.replace(/\s/g, "")}">${esc(c.phone)}</a></li>
-    <li><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>
-    <li>${esc(c.address)}</li>
-    <li>${esc(c.hours)}</li>`;
+const telHref = `tel:${c.phone.replace(/\s/g, "")}`;
+
+const barEl = $("[data-bar]");
+if (barEl) {
+  barEl.innerHTML = `
+    <a href="index.html" class="bar__brand"><span>${esc(CONFIG.brand)}</span><span>${esc(CONFIG.tagline.toUpperCase())}</span></a>
+    <nav class="bar__nav">${CONFIG.nav
+      .map((n) => `<a href="${n.href}"${n.key === page ? ' class="is-active"' : ""}>${esc(n.label)}</a>`)
+      .join("")}</nav>
+    <div class="bar__right">
+      <a class="bar__phone" href="${telHref}">${esc(c.phone)}</a>
+      <a href="contacts.html" class="btn">ЗАЯВКА</a>
+    </div>`;
+}
+
+const footerEl = $("[data-footer]");
+if (footerEl) {
+  footerEl.innerHTML = `
+    <div class="footer__row">
+      <div class="footer__brand">${esc(CONFIG.brand)}</div>
+      <ul class="footer__contacts">
+        <li><a href="${telHref}">${esc(c.phone)}</a></li>
+        <li><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>
+        <li>${esc(c.address)}</li>
+        <li>${esc(c.hours)}</li>
+      </ul>
+    </div>
+    <p class="footer__muted">ДЕМО-САЙТ · СОБРАН ДЛЯ ПОРТФОЛИО</p>`;
 }
 
 /* ---- слайдер до/после: единственная сигнатура сайта ---- */
@@ -55,10 +62,11 @@ function initBeforeAfter(root = document) {
   });
 }
 
-function baMarkup(before, after, capBefore = "ДО", capAfter = "ПОСЛЕ") {
+function baMarkup(before, after, { lazy = true, capBefore = "ДО", capAfter = "ПОСЛЕ" } = {}) {
+  const load = lazy ? ' loading="lazy"' : "";
   return `
-    <img class="ba__after" src="${esc(after)}" alt="После уборки" />
-    <img class="ba__before" src="${esc(before)}" alt="До уборки" />
+    <img class="ba__after" src="${esc(after)}" alt="После уборки"${load} />
+    <img class="ba__before" src="${esc(before)}" alt="До уборки"${load} />
     <span class="ba__tag ba__tag--before">${esc(capBefore)}</span>
     <span class="ba__tag ba__tag--after">${esc(capAfter)}</span>
     <div class="ba__handle"></div>`;
@@ -76,7 +84,7 @@ function renderHome() {
   $("[data-hero-cta-sub]").textContent = h.ctaSub;
 
   const ba = CONFIG.beforeAfter;
-  $("[data-hero-ba]").innerHTML = baMarkup(ba.before, ba.after);
+  $("[data-hero-ba]").innerHTML = baMarkup(ba.before, ba.after, { lazy: false });
   $("[data-hero-ba-cap]").textContent = ba.caption;
 
   $("[data-process]").innerHTML = CONFIG.process
