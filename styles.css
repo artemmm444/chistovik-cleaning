@@ -142,7 +142,7 @@ a { color: inherit; text-decoration: none; }
 
 /* PROCESS */
 .process__list { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-.process__item { padding: 1.6rem 1.6rem 1.6rem 0; border-right: 1px solid var(--line); }
+.process__item { padding: 2rem; border-right: 1px solid var(--line); }
 .process__item:last-child { border-right: none; }
 .process__n { font-family: var(--mono); font-size: 0.85rem; color: var(--blue); }
 .process__item h3 { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin: 1.2rem 0 0.8rem; }
@@ -198,7 +198,7 @@ a { color: inherit; text-decoration: none; }
 
 /* CONTACTS / FORM */
 .contact { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-.contact__side { padding: clamp(2rem, 4vw, 3.2rem) var(--pad) clamp(2rem, 4vw, 3.2rem) 0; border-right: 1px solid var(--line); }
+.contact__side { padding: clamp(2rem, 4vw, 3.2rem) var(--pad); border-right: 1px solid var(--line); }
 .contact__list { list-style: none; margin-top: 1.6rem; display: flex; flex-direction: column; gap: 1.1rem; }
 .contact__list dt { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; color: var(--ink-soft); margin-bottom: 0.5rem; }
 .contact__list dd { font-family: var(--display); font-weight: 500; font-size: 1.05rem; }
@@ -206,7 +206,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: 1.8rem; aspect-ratio: 16/10; border: 1px solid var(--line); background: var(--paper-2);
   display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.76rem; color: var(--ink-soft); text-align: center; padding: 1rem;
 }
-.form { padding: clamp(2rem, 4vw, 3.2rem) 0 clamp(2rem, 4vw, 3.2rem) var(--pad); display: flex; flex-direction: column; gap: 1.3rem; }
+.form { padding: clamp(2rem, 4vw, 3.2rem) var(--pad); display: flex; flex-direction: column; gap: 1.3rem; }
 .field { display: flex; flex-direction: column; gap: 0.8rem; }
 .field > span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; color: var(--ink-soft); }
 .field input, .field select, .field textarea {
