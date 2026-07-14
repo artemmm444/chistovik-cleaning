@@ -171,6 +171,20 @@ export const CONFIG = {
     { name: "ОЛЬГА", where: "ЧАСТНЫЙ ДОМ", text: "Химчистка дивана — как новый. И запах ушёл, до этого ничего не помогало." },
   ],
 
+  calculator: {
+    types: [
+      { id: "support", label: "Поддерживающая", base: 2800, perM2: 30 },
+      { id: "general", label: "Генеральная", base: 4500, perM2: 55 },
+      { id: "renovation", label: "После ремонта", base: 6900, perM2: 75 },
+    ],
+    freq: [
+      { id: "once", label: "Разово", k: 1, note: "" },
+      { id: "biweekly", label: "2 раза в месяц", k: 0.9, note: "скидка 10% за регулярность" },
+      { id: "weekly", label: "Каждую неделю", k: 0.85, note: "скидка 15% за регулярность" },
+    ],
+    baseArea: 60,
+  },
+
   contacts: {
     phone: "+7 900 100 20 30",
     email: "hello@chistovik.pro",

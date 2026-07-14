@@ -207,3 +207,48 @@ if (location.search.includes("selftest")) {
   console.assert(clamp(50) === 50, "clamp mid");
   console.log("selftest ok");
 }
+
+/* ---- калькулятор стоимости (главная) ---- */
+const calcRoot = $("[data-calc-type]");
+if (calcRoot && CONFIG.calculator) {
+  const K = CONFIG.calculator;
+  const state = { type: K.types[0].id, area: 45, freq: K.freq[0].id };
+
+  const opts = (list, key, host) => {
+    host.innerHTML = list
+      .map((o) => `<button type="button" class="calc__opt${o.id === state[key] ? " is-on" : ""}" data-v="${o.id}">${esc(o.label)}</button>`)
+      .join("");
+    $$(".calc__opt", host).forEach((btn) =>
+      btn.addEventListener("click", () => {
+        state[key] = btn.dataset.v;
+        $$(".calc__opt", host).forEach((b) => b.classList.toggle("is-on", b === btn));
+        recalc();
+      })
+    );
+  };
+
+  const typeHost = $("[data-calc-type]");
+  const freqHost = $("[data-calc-freq]");
+  const areaEl = $("[data-calc-area]");
+  const areaLbl = $("[data-calc-area-lbl]");
+  const priceEl = $("[data-calc-price]");
+  const noteEl = $("[data-calc-note]");
+
+  function recalc() {
+    const t = K.types.find((x) => x.id === state.type);
+    const f = K.freq.find((x) => x.id === state.freq);
+    const extra = Math.max(0, state.area - K.baseArea) * t.perM2;
+    const price = Math.round((t.base + extra) * f.k / 50) * 50;
+    areaLbl.textContent = `${state.area} м²`;
+    priceEl.textContent = `${price.toLocaleString("ru-RU")} ₽`;
+    noteEl.textContent = f.note || `${t.label.toLowerCase()} · разовый выезд`;
+  }
+
+  opts(K.types, "type", typeHost);
+  opts(K.freq, "freq", freqHost);
+  areaEl.addEventListener("input", () => {
+    state.area = +areaEl.value;
+    recalc();
+  });
+  recalc();
+}

@@ -47,6 +47,36 @@
     <div class="services__grid" data-services-preview></div>
   </section>
 
+  <section class="section" id="calc">
+    <div class="section__head">
+      <div><p class="tag">[ КАЛЬКУЛЯТОР ]</p><h2 class="head">Сколько стоит <em>ваша уборка?</em></h2></div>
+    </div>
+    <div class="calc">
+      <div class="calc__controls">
+        <div class="calc__group">
+          <span class="calc__lbl">ТИП УБОРКИ</span>
+          <div class="calc__opts" data-calc-type></div>
+        </div>
+        <div class="calc__group">
+          <span class="calc__lbl">ПЛОЩАДЬ — <b data-calc-area-lbl>45 м²</b></span>
+          <input type="range" min="20" max="150" step="5" value="45" data-calc-area aria-label="Площадь, м²" />
+          <div class="calc__scale"><span>20 м²</span><span>150 м²</span></div>
+        </div>
+        <div class="calc__group">
+          <span class="calc__lbl">ЧАСТОТА</span>
+          <div class="calc__opts" data-calc-freq></div>
+        </div>
+      </div>
+      <aside class="calc__out">
+        <span class="calc__out-lbl">ПРИМЕРНАЯ ЦЕНА</span>
+        <b class="calc__price" data-calc-price></b>
+        <span class="calc__note" data-calc-note></span>
+        <a href="contacts.html" class="btn">Оставить заявку</a>
+        <span class="calc__fine">Точная цена — после уточнения деталей по телефону</span>
+      </aside>
+    </div>
+  </section>
+
   <section class="section">
     <div class="section__head">
       <div><p class="tag">[ ОТЗЫВЫ ]</p><h2 class="head">Что говорят <em>клиенты</em></h2></div>
