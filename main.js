@@ -240,7 +240,20 @@ if (calcRoot && CONFIG.calculator) {
     const extra = Math.max(0, state.area - K.baseArea) * t.perM2;
     const price = Math.round((t.base + extra) * f.k / 50) * 50;
     areaLbl.textContent = `${state.area} м²`;
+    const from = parseInt(priceEl.dataset.v || "0", 10);
+    priceEl.dataset.v = price;
     priceEl.textContent = `${price.toLocaleString("ru-RU")} ₽`;
+    cancelAnimationFrame(recalc._raf);
+    if (from && from !== price) {
+      const t0 = performance.now();
+      const tween = (now) => {
+        const k = Math.min((now - t0) / 380, 1);
+        const val = Math.round(from + (price - from) * (1 - Math.pow(1 - k, 3)));
+        priceEl.textContent = `${val.toLocaleString("ru-RU")} ₽`;
+        if (k < 1) recalc._raf = requestAnimationFrame(tween);
+      };
+      recalc._raf = requestAnimationFrame(tween);
+    }
     noteEl.textContent = f.note || `${t.label.toLowerCase()} · разовый выезд`;
   }
 
@@ -251,4 +264,19 @@ if (calcRoot && CONFIG.calculator) {
     recalc();
   });
   recalc();
+}
+
+/* появление секций при скролле */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const rvEls = $$(".process__list > *, .services__grid > *, .reviews__grid > *, .calc, .cta-band, .hero__grid > *, .cases__grid > *, .team__grid > *");
+  rvEls.forEach((el, i) => {
+    el.classList.add("rv");
+    el.style.setProperty("--rv-d", (i % 4) * 80 + "ms");
+  });
+  const rvIO = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add("rv-in"); rvIO.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+  rvEls.forEach((el) => rvIO.observe(el));
 }
