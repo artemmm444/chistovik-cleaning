@@ -15,7 +15,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--paper); }
 body {
   font-family: var(--body);
   background: var(--paper);
@@ -23,6 +23,8 @@ body {
   font-size: 17px;
   line-height: 1.55;
   overflow-x: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
   -webkit-font-smoothing: antialiased;
 }
 img { display: block; max-width: 100%; }
