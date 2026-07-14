@@ -22,8 +22,36 @@ if (barEl) {
       .join("")}</nav>
     <div class="bar__right">
       <a class="bar__phone" href="${telHref}">${esc(c.phone)}</a>
+      <button class="theme-toggle" aria-label="Смена темы"></button>
       <a href="contacts.html" class="btn">ЗАЯВКА</a>
     </div>`;
+}
+
+/* ---- управление темой ---- */
+const themeBtn = $(".theme-toggle");
+if (themeBtn) {
+  const modes = ["system", "light", "dark"];
+  const icons = { system: "💻", light: "☀️", dark: "🌙" };
+  const titles = { system: "Тема: системная", light: "Тема: светлая", dark: "Тема: тёмная" };
+  let current = localStorage.getItem("theme") || "system";
+
+  const apply = (t) => {
+    if (t === "system") {
+      document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+    themeBtn.textContent = icons[t];
+    themeBtn.title = titles[t];
+    localStorage.setItem("theme", t);
+  };
+
+  themeBtn.addEventListener("click", () => {
+    current = modes[(modes.indexOf(current) + 1) % modes.length];
+    apply(current);
+  });
+
+  apply(current);
 }
 
 const footerEl = $("[data-footer]");
